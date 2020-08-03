@@ -6,6 +6,7 @@ import './Chat.css';
 
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
+import Messages from '../Messages/Messages';
 
 let socket;
 const Chat = ({ location }) => {
@@ -59,7 +60,8 @@ const Chat = ({ location }) => {
             <div className ="joinInnerContainer">
                 <h1 className="heading"> Join Chat</h1>
                 <InfoBar room = {room}/>
-                <Input message = {message} setMessage = {setMessage} sendMessage = {sendMessage} />
+                <Messages messages={messages} name={name}/>
+				<Input message = {message} setMessage = {setMessage} sendMessage = {sendMessage} />
                 
             </div>
         </div>

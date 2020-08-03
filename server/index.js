@@ -17,11 +17,15 @@ io.on('connection', (socket) =>{
     console.log('we have a new connection!!!!');
     
     socket.on('disconnect', ()=>{
-        console.log('ohh no, user has left!!!');
+        const user = removeUser(socket.id);
+		
+		if(user){
+			io.to(user.room).emit('message', {user: 'admin', text: `${user.name} left the room`});
+		}
     });
 	socket.on('join', ({name, room}, callback)=>{
 		console.log(name, room);
-		
+
 		const {error, user} = addUser({ id:socket.id, name, room });
 		
 		if(error) return callback(error);
