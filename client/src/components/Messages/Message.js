@@ -12,6 +12,15 @@ const Message = ({ message: { text, user }, name }) => {
   if(user === trimmedName) {
     isSentByCurrentUser = true;
   }
+  if(user === 'admin'){
+	  return(
+		<div className="messageContainer">
+            <p className="messageText justifyCenter colorBlack">{ReactEmoji.emojify(text)}</p>
+          </div>
+        );
+          // <div className="messageBox backgroundBlue">
+        // </div>
+  }
 
   return (
     isSentByCurrentUser

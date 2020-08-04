@@ -37,13 +37,11 @@ const Chat = ({ location }) => {
 		};
 	}, [ENDPOINT, location.search] )
 	
-	useEffect( ()=>{
-		socket.on('message', (message) =>{
-			setMessages([...messages, message]);
+	useEffect(( ) => {
+		socket.on("message", message => {
+		  setMessages(msgs => [...msgs, message]);
 		});
-		
-	}, [messages]);
-
+	},  [ ]);
 	//function for sending message
 	
 	const sendMessage = (event) =>{
@@ -56,9 +54,8 @@ const Chat = ({ location }) => {
 	console.log(message, messages);
 	
     return(
-        <div className ="joinOuterContainer">
-            <div className ="joinInnerContainer">
-                <h1 className="heading"> Join Chat</h1>
+        <div className ="outerContainer">
+            <div className ="container">
                 <InfoBar room = {room}/>
                 <Messages messages={messages} name={name}/>
 				<Input message = {message} setMessage = {setMessage} sendMessage = {sendMessage} />
