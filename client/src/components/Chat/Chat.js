@@ -15,7 +15,7 @@ const Chat = ({ location }) => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 	
-	const ENDPOINT = 'localhost:5000';
+	const ENDPOINT = 'https://lets-talk-server.herokuapp.com/';
 	useEffect( ()=>{
 		
 		const {name, room}= queryString.parse(location.search);
